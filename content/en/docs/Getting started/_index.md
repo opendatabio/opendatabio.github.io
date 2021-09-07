@@ -3,33 +3,28 @@ title: "Getting Started"
 linkTitle: "Getting Started"
 weight: 2
 description: >
-  What does your user need to know to try your project?
+  Getting and installing OpenDataBio
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+OpenDataBio is a web-based software supported in Debian, Ubuntu and Arch-Linux distributions of Linux and may be implemented in any Linux based machine. We have no plans for Windows support, but it may be easy to install in a windows machine using Docker.
 
-Information in this section helps your user try your project themselves.
+Opendatabio is written in [PHP](https://www.php.net) and developed with the [Laravel framework](https://laravel.com/). It requires a web server (apache or nginx), PHP and a SQL database -- tested only with [MySQL](https://www.mysql.com/) and [MariaDB](https://mariadb.org/).
 
-* What do your users need to do to start using your project? This could include downloading/installation instructions, including any prerequisites or system requirements.
+You may install OpenDataBio easily using the Docker files included in the distribution, but these docker files provided are meant for development only and required tuning to deploy a production site.
 
-* Introductory “Hello World” example, if appropriate. More complex tutorials should live in the Tutorials section.
+If you just want to test OpenDataBio in your computer, follow the Docker Installation.
 
-Consider using the headings below for your getting started page. You can delete any that are not applicable to your project.
+----
+## Prep for installation
 
-## Prerequisites
+<span class="btn  btn-danger mr-3 mb-4 text-dark">
+<i class="fas fa-exclamation-triangle"></i> Not yet ready for production
+</span>
 
-Are there any system requirements for using your project? What languages are supported (if any)? Do users need to already have any software or tools installed?
+<br>
+{{< github_button button="view" user="opendatabio" repo="opendatabio" large="true" >}}
+<br>
+<br>
 
-## Installation
-
-Where can your user find your project code? How can they install it (binaries, installable package, build from source)? Are there multiple options/versions they can install and how should they choose the right one for them?
-
-## Setup
-
-Is there any initial setup users need to do after installation to try your project?
-
-## Try it out!
-
-Can your users test their installation, for example by running a command or deploying a Hello World example?
+1. You may want to request a [Tropicos.org API key](https://services.tropicos.org/help?requestkey) for OpenDataBio to be able to retrieve taxonomic data from the Tropicos.org database. If not provided, mainly the GBIF nomenclatural service will be used;
+1. OpenDataBio sends emails to registered users, either to inform about a [Job](/docs/concepts/data-access/#user-job) that has finished, to send data requests to dataset administrators or for password recovery. You may use a Google Email for this, but will need to change the account security options to allow OpenDataBio to use the account to send emails (you need to turn **on** the `Less secure app access` option in the Gmail My Account Page). Therefore, create a dedicated email address for your installation. Check the "config/mail.php" file for more options on how to send e-mails.

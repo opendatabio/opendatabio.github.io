@@ -1,81 +1,118 @@
 ---
 title: "Contribution Guidelines"
 linkTitle: "Contribution Guidelines"
-weight: 10
+weight: 6
 description: >
-  How to contribute to the docs
+  How to contribute to OpenDataBio?
 ---
 
-{{% pageinfo %}}
-These basic sample guidelines assume that your Docsy site is deployed using Netlify and your files are stored in GitHub. You can use the guidelines "as is" or adapt them with your own instructions: for example, other deployment options, information about your doc project's file structure, project-specific review guidelines, versioning guidelines, or any other information your users might find useful when updating your site. [Kubeflow](https://github.com/kubeflow/website/blob/master/README.md) has a great example.
+## Report bugs & suggest improvements
 
-Don't forget to link to your own doc repo rather than our example site! Also make sure users can find these guidelines from your doc repo README: either add them there and link to them from this page, add them here and link to them from the README, or include them in both locations.
-{{% /pageinfo %}}
 
-We use [Hugo](https://gohugo.io/) to format and generate our website, the
-[Docsy](https://github.com/google/docsy) theme for styling and site structure, 
-and [Netlify](https://www.netlify.com/) to manage the deployment of the site. 
-Hugo is an open-source static site generator that provides us with templates, 
-content organisation in a standard directory structure, and a website generation 
-engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.
+Post an issue on one of the GitHub repositories below, depending on the issue.  
 
-All submissions, including submissions by project members, require review. We
-use GitHub pull requests for this purpose. Consult
-[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
-information on using pull requests.
+Before posting, check if an open issue does already contains what you want to report, ask or propose.
 
-## Quick start with Netlify
+Tag your issue with one or more <a href="https://github.com/opendatabio/opendatabio/labels" target="_blank">appropriate labels</a>.
 
-Here's a quick guide to updating the docs. It assumes you're familiar with the
-GitHub workflow and you're happy to use the automated preview of your doc
-updates:
+<br>
+<a class="btn btn btn-success mr-3 mb-3 text-dark" href="https://github.com/opendatabio/opendatabio/issues" target="_blank" >
+<i class="fab fa-github ml-2 "></i> Issues for the main repository</a>
+<br>
+<a class="btn btn btn-primary  mr-3 mb-4 text-dark" href="https://github.com/opendatabio/opendatabio-r/issues" target="_blank" >
+	<i class="fab fa-github ml-2 "></i> Issues for the R package</a>
+  <br>  
+<a class="btn btn btn-warning  mr-3 mb-4 text-dark" href="https://github.com/opendatabio/opendatabio.github.io/issues" target="_blank" >
+  	<i class="fab fa-github ml-2 "></i> Issues for this documentation site</a>
 
-1. Fork the [Goldydocs repo](https://github.com/google/docsy-example) on GitHub.
-1. Make your changes and send a pull request (PR).
-1. If you're not yet ready for a review, add "WIP" to the PR name to indicate 
-  it's a work in progress. (**Don't** add the Hugo property 
-  "draft = true" to the page front matter, because that prevents the 
-  auto-deployment of the content preview described in the next point.)
-1. Wait for the automated PR workflow to do some checks. When it's ready,
-  you should see a comment like this: **deploy/netlify — Deploy preview ready!**
-1. Click **Details** to the right of "Deploy preview ready" to see a preview
-  of your updates.
-1. Continue updating your doc and pushing your changes until you're happy with 
-  the content.
-1. When you're ready for a review, add a comment to the PR, and remove any
-  "WIP" markers.
+## Collaborate with development, language translations and docs
 
-## Updating a single page
+> We expect this project to grow collaboratively, required for its development and use in the long term. Therefore, developer collaborators are welcome to help fixing and improving OpenDataBio. The <a href="https://github.com/opendatabio/opendatabio/labels" target="_blank">issues list</a> is a place to start to know what is needed.
 
-If you've just spotted something you'd like to change while using the docs, Docsy has a shortcut for you:
+The following guidelines are recommend if you want to collaborate:
 
-1. Click **Edit this page** in the top right hand corner of the page.
-1. If you don't already have an up to date fork of the project repo, you are prompted to get one - click **Fork this repository and propose changes** or **Update your Fork** to get an up to date version of the project to edit. The appropriate page in your fork is displayed in edit mode.
-1. Follow the rest of the [Quick start with Netlify](#quick-start-with-netlify) process above to make, preview, and propose your changes.
+1. Communicate with the [OpenDataBio repository maintainer](/docs/about) indicating which issues you want to work on and join the development team.
+1. `Fork` the repository
+1. Create a `branch` to commit your modifications or additions
+1. When happy with results, make a pull request to ask the project maintainer to review your contribution and merge it to the repository. Consult [GitHub Help](https://help.github.com/articles/about-pull-requests/) for more information on using pull requests.
 
-## Previewing your changes locally
+### Programming directives
 
-If you want to run your own local Hugo server to preview your changes as you work:
+1. Use the [docker installation](/docs/getting-started/docker-installatio.md) for development, which shared among all developers facilitates debug. The Laravel-Datatables library is incompatible with `php artisan serve`, so this command should not be used.
+1. This software should adhere to Semantic Versioning, starting from version 0.1.0-alpha1. The companion R package and the Documentation (this site) should follow a similar versioning scheme. When changing version, a release tag must be created with the old version.
+1. All variables and functions should be named in **English**, with entities and fields related to the database being named in the singular form. All tables (where appropriate) should have an "id" column, and foreign keys should reference the base table with "_id" suffix, except in cases of self-joins (such as "taxon.parent_id") or [polymorphic foreign keys](/docs/contribution-guidelines/#polymorphicrelationships). The id of each table has type INT and should be autoincrementing.
+1. Use **laravel migration** class to add any modification to the database structure. Migration should include, if apply, management of existing data.
+1. Use **camelCase** for methods (i.e. relationships) and **snake_case** for functions.
+1. Document the code with comments and create documentation pages if necessary.
+1. There should be a structure to store which **Plugins** are installed on a given database and which are the compatible system versions.
+1. This system uses Laravel Mix to compile the SASS and JavaScript code used. If you add or modify these `npm run prod` after making any change to these files.
 
-1. Follow the instructions in [Getting started](/docs/getting-started) to install Hugo and any other tools you need. You'll need at least **Hugo version 0.45** (we recommend using the most recent available version), and it must be the **extended** version, which supports SCSS.
-1. Fork the [Goldydocs repo](https://github.com/google/docsy-example) repo into your own project, then create a local copy using `git clone`. Don’t forget to use `--recurse-submodules` or you won’t pull down some of the code you need to generate a working site.
+## Collaborate with the docs
 
+We welcome [Tutorials](/docs/tutorials) for dealing with specific tasks.
+
+To create a tutorial:
+
+1. `Fork` the [documentation repository](https://github.com/opendatabio/opendatabio.github.io)
+1. Create a `branch` to commit your modifications or additions
+1. Add your tutorial:
+  - Create a folder within the `contents/{lang}/docs/Tutorials` using kebab-case for the folder name. Ex. `first-tutorial`
+  - You may create a tutorial in single language, or on multiple languages. Just place it in the correct folder   
+  - Within the created folder, create a file named `_index.md` and create the markdown content with your tutorial.
+  - You may start copying the content of a tutorial example in the [Docsy Example repository](https://example.docsy.dev/docs/tutorials/).
+1. When happy with results, make a pull request to ask the project maintainer to review your contribution and merge it to the repository. Consult [GitHub Help](https://help.github.com/articles/about-pull-requests/) for more information on using pull requests.
+
+
+## Collaborate with translations
+
+You may help with translations for the web-interface or the documentation site. If want to have a new language for your installation, share your translation, creating a pull request with the new files.
+
+### New language for the web-interface:
+
+1. fork and create a branch for the main repository
+1. create a folder for the new language using the [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php) within the `resources/lang` folder
+    ```bash
+    cd opendatabio
+    cd resources/lang
+    cp en es
     ```
-    git clone --recurse-submodules --depth 1 https://github.com/google/docsy-example.git
+1. translate all the values for all the variables within all the files in the new folder (may use google translation to start, just make sure variable names are not translated, otherwise, it will not work)
+1. add language to array in `config/languages.php`
+1. add language to database language table creating a laravel migration
+1. make a pull request
+
+### New language for the documentation site
+
+1. fork and create a branch for the documentation repository
+1. create a folder for the new language using the [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php) within the `content` folder
+    ```bash
+    cd opendatabio.github.io
+    cd contents
+    cp pt es
     ```
-
-1. Run `hugo server` in the site root directory. By default your site will be available at http://localhost:1313/. Now that you're serving your site locally, Hugo will watch for changes to the content and automatically refresh your site.
-1. Continue with the usual GitHub workflow to edit files, commit them, push the
-  changes up to your fork, and create a pull request.
-
-## Creating an issue
-
-If you've found a problem in the docs, but you're not sure how to fix it yourself, please create an issue in the [Goldydocs repo](https://github.com/google/docsy-example/issues). You can also create an issue about a specific page by clicking the **Create Issue** button in the top right hand corner of the page.
-
-## Useful resources
-
-* [Docsy user guide](https://www.docsy.dev/docs/): All about Docsy, including how it manages navigation, look and feel, and multi-language support.
-* [Hugo documentation](https://gohugo.io/documentation/): Comprehensive reference for Hugo.
-* [Github Hello World!](https://guides.github.com/activities/hello-world/): A basic introduction to GitHub concepts and workflow.
+1. check all files within the folder and translate where needed (may use google translation to start, just make sure to translate only what can be translated)
+1. push to your branch and make a pull request to the main repository
 
 
+<a name="polymorphicrelationships"></a>
+## Polymorphic relations
+
+Some of the foreign relations within OpenDataBio are mapped using [Polymorphic relations](https://laravel.com/docs/8/eloquent-relationships#polymorphic-relations). These are indicated in a model by having a field ending in `_id` and a field ending in `_type`. For instance, all Core-Objects may have [Measurements](/docs/concepts/trait-objects/#measurement), and these relationships are established in the Measurements table by the `measured_id` and the `measured_type`  columns, the first storing the related model unique `id`, the second the measured model class in strings like 'App\Models\Individual', 'App\Models\Voucher', 'App\Models\Taxon', 'App\Models\Location'.
+
+<a name="erd-generator"></a>
+## Data model images
+Most figures for explaining the [data model](/docs/concepts) were generated using [Laravel ER Diagram Generator](https://github.com/beyondcode/laravel-er-diagram-generator), which allows to show all the methods implemented in each Class or Model and not only the table direct links:
+
+To generate these figures a custom `php artisan` command was generated. These command is defined in file `app/Console/Commands/GenerateOdbErds.php`.
+
+To update the figures follow the following steps:
+
+* Figures are configure in the  `config/erd-generator-odb.php` file. There are many additional options for customizing the figures by changing or adding graphviz variables to the `config/erd-generator-base.php` file.
+* The custom command is `php artisan odb:erd {$model}`, where model is the key of the arrays in `config/erd-generator-odb.php`, or the word "all", to regenerate all doc figures.
+```bash
+cd opendatabio
+make ssh
+php artisan odb:erd all
+```
+* Figures will be saved in `storage/app/public/dev-imgs`
+* Copy the new images to the [documentation site](https://github.com/opendatabio/opendatabio.github.io). They need to be placed within  `contents/{lang}/concepts/{subfolder}` for all languages and in the respective sub-folders.

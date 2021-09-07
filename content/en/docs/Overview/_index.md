@@ -3,36 +3,33 @@ title: "Overview"
 linkTitle: "Overview"
 weight: 1
 description: >
-  Here's where your user finds out if your project is for them.
+  What is OpenDataBio?
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+OpenDataBio is an opensource web-based platform designed to help researchers and organizations studying biodiversity in Tropical regions to collect, store, related and serve data. It is designed to accommodate many data types used in biological sciences and their relationships, particularly biodiversity and ecological studies, and serves as a data repository that allow users to download or request well-organized and documented research data.
 
+## Why?
 
-The Overview is where your users find out about your project. Depending on the size of your docset, you can have a separate overview page (like this one) or put your overview contents in the Documentation landing page (like in the Docsy User Guide). 
+Biodiversity studies frequently require the integration of a large amount of data, which require standardization for data use and sharing, and also continuous management and updates, particularly in Tropical regions where biodiversity is huge and poorly known.
 
-Try answering these questions for your user in this page:
+OpenDataBio was designed based on the need to organize and integrate historical and current data collected in the Amazon region, taking into account field practices and data types used by ecologists and taxonomists.
 
-## What is it?
+Graduate students, NGOs and Government institutions still largely use spreadsheets for organizing data, unfit to the required level of data normalization and standardization such data entail, or use proprietary software.
 
-Introduce your project, including what it does or lets you do, why you would use it, and its primary goal (and how it achieves it). This should be similar to your README description, though you can go into a little more detail here if you want.
+OpenDataBio aim to facilitate the standardization and normalization of data, utilizing different API services available online, giving flexibility to user and user groups, and creating the necessary links among Locations, Taxons, Individuals, Vouchers and the Measurements and Media-files associated with them, while offering accessibility to the data through an API service, facilitating data distribution and analyses.
 
-## Why do I want it?
+## Main features
 
-Help your user know if your project will help them. Useful information can include: 
+1. **Custom variables** - the ability to define custom [Traits](/docs/concepts/trait-objects), i.e. user defined variables of different types, including some special cases like Spectral Data, Colors and Links. [Measurements](/docs/concepts/trait-objects/#measurement) for such traits can be recorded for [Individuals](/docs/concepts/core-objects/#individual), [Vouchers](/docs/concepts/core-objects/#voucher), [Taxons](/docs/concepts/core-objects/#taxon) or [Locations](/docs/concepts/core-objects/#location).
+1. [Taxons](/docs/concepts/core-objects/#taxon) can be **published or unpublished names** (e.g. a morphotype), synonyms or valid names, and any node of the tree of life may be stored. Taxon insertion are checked against different nomenclature data sources (*Tropicos, IPNI, MycoBank,ZOOBANK, GBIF*), minimizing your search for correct spelling, authorship and synonyms.
+1. [Locations](/docs/concepts/core-objects/#location) are stored with their **spatial Geometries**, allowing location parent detection and spatial queries. Special location types, such as **Plots** and **Transects** can be defined, facilitating commonly used methods in biodiversity studies
+1. **Data access control** - data are organized in [Datasets](/docs/concepts/data-access/#dataset) that permits to define an access policy (public, non-public) and a license for distribution of public datasets, becoming a self-contained dynamic data publication, versioned by the last edit date.
+1. Different research groups may use a single OpenDataBio installation, having total control over their particular research data edition and access, while sharing common libraries such as Taxonomy, Locations, Bibliographic References and Trait definitions.
+1. **API to access data programatically** - Tools for data exports and imports are provided through [API services](/docs/api) along with a API client in the R language, the [OpenDataBio-R package](https://github.com/opendatabio/opendatabio-r).
+1. **Autiting** - the [Activity Model](/docs/concepts/auxiliary-objects/#auditing) audits changes in any record and downloads of full datasets, which are logged for history tracking.
+1. A mobile data collector is planned with [ODK](https://getodk.org/) or [ODK-X](https://odk-x.org/)
 
-* **What is it good for?**: What types of problems does your project solve? What are the benefits of using it?
+## Learn more
 
-* **What is it not good for?**: For example, point out situations that might intuitively seem suited for your project, but aren't for some reason. Also mention known limitations, scaling issues, or anything else that might let your users know if the project is not for them.
-
-* **What is it *not yet* good for?**: Highlight any useful features that are coming soon.
-
-## Where should I go next?
-
-Give your users next steps from the Overview. For example:
-
-* [Getting Started](/docs/getting-started/): Get started with $project
-* [Examples](/docs/examples/): Check out some example code!
-
+* [Getting Started](/docs/getting-started/): install OpenDataBio!
+* [FAQs](/docs/apis/): Check out some example code!
