@@ -14,8 +14,6 @@ Estudos de biodiversidade freqüentemente requerem a integração de uma grande 
 
 O OpenDataBio foi desenhado com base na necessidade de organizar e integrar dados históricos e atuais coletados na região amazônica, levando em consideração as práticas de campo e os tipos de dados utilizados por ecologistas e taxonomistas.
 
-Estudantes de pós-graduação, ONGs e instituições governamentais ainda usam planilhas para organizar dados, inadequadas para o necessário nível de normalização e padronização de dados que tais dados implicam. Muitos dados não são compartilhados por falta de uma estrutura integradora adequada.
-
 O OpenDataBio visa facilitar a padronização e normalização dos dados, utilizando diferentes serviços disponíveis online, dando flexibilidade aos usuários e grupos de usuários, e criando os links necessários entre Localidades, Táxons, Indivíduos, Vouchers e as Medições e os Arquivos de Mídia associados a eles, ao mesmo tempo em que oferece acessibilidade aos dados por meio de um serviço de API próprio, facilitando a distribuição e análise dos dados.
 
 ## Características relevantes

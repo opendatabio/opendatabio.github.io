@@ -14,8 +14,6 @@ Biodiversity studies frequently require the integration of a large amount of dat
 
 OpenDataBio was designed based on the need to organize and integrate historical and current data collected in the Amazon region, taking into account field practices and data types used by ecologists and taxonomists.
 
-Graduate students, NGOs and Government institutions still largely use spreadsheets for organizing data, unfit to the required level of data normalization and standardization such data entail, or use proprietary software.
-
 OpenDataBio aim to facilitate the standardization and normalization of data, utilizing different API services available online, giving flexibility to user and user groups, and creating the necessary links among Locations, Taxons, Individuals, Vouchers and the Measurements and Media-files associated with them, while offering accessibility to the data through an API service, facilitating data distribution and analyses.
 
 ## Main features
