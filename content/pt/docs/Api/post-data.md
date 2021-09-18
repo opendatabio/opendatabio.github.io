@@ -80,6 +80,8 @@ Possible fields are:
 
 {{<alert color = "warning" title = "Atenção">}}
 As localidades são armazenadas com um relacionamento pai-filho, garantindo validações e facilitando  consultas. Os pais serão adivinhados usando a geometria da localidade sendo importada. Se o pai não for informado, o local importado deve estar completamente contido por um pai registrado (a função sql [ST_WITHIN](https://postgis.net/docs/ST_Within.html) será usada para detectar o pai). No entanto, se um pai for informado, a importação também pode testar se a geometria se ajusta a uma versão em buffer da geometria da localidade pai, ignorando assim a sobreposição de geometrias secundárias e bordas compartilhadas. Os países podem ser importados sem relações com os pais. Qualquer outro local deve ser registrado em pelo menos um 'país' como pai. Se o registro for marinho e estiver fora do polígono de um país registrado, um argumento 'ismarine' deve ser indicado para aceitar o relacionamento não espacial com a localidade.
+
+Subparcelas  é a única situação em que a geometria não é necessária. Se não for informado, a geometria será calculada com base na geometria da Parcela pai e com as coordenadas startx e starty da subparcela.
 {{</ alert>}}
 
 Certifique-se de que sua projeção geométrica seja **EPSG: 4326** **WGS84**. Use este padrão!
@@ -96,7 +98,8 @@ Campos POST disponíveis:
 * quando a localização é PARCELA (`adm_level = 100`), os campos opcionais são:
   * `x` e` y` para as dimensões da parcela em metros (define as coordenadas cartesianas)
   * `startx` e` starty` para a posição inicial de uma sub-parcela em relação à localização da parcela pai;
-* `notas` - qualquer nota que você deseja adicionar à sua localidade
+* `notes` - qualquer nota que você deseja adicionar à sua localidade
+* `azimuth` - aplica-se apenas para Parcelas e Transectos e **quando registrados** com uma geometria de tipo PONTO - o azimute será usado para construir a geometria. Para Parcelas, as coordenadas do ponto referem-se ao vértice 0,0 do polígono que será construído no sentido horário a partir do ponto informado, do azimute e a dimensão y. Para transectos, as coordenadas do ponto informado são o ponto inicial e uma linha será construída usando este azimute e a dimensão x.
 * `ismarine` - para permitir a importação de registros de localidade que não se enquadram em nenhum registro de localidade pai, você pode adicionar `ismarine=1`. Observe, no entanto, que isso permite importar locais sem validação espacial. Use somente se sua localização for realmente um local marítimo que esteja fora da fronteira de qualquer país registrado.
 
 **alternatively**: you may just submit a single column named `geojson` containing a Feature record, with its geometry and having as 'properties' at least tags `name` and `adm_level` (or `admin_level`). See [geojson.org](https://geojson.org/). This is usefull, for example, to import country political boundaries (https://osm-boundaries.com/).
@@ -179,7 +182,7 @@ Campos permitidos para POST traits:
 * `name = json` - veja abaixo sobre traduções; **obrigatório**
 * `description = json` - veja abaixo sobre traduções; **obrigatório**
 Campos específicos para tipos de variáveis:
-  * `units = string` - exigido apenas para variáveis quantitativas (a unidade de medida). recomendado o uso de padrões de inglês e palavras completas, por exemplo, ('meters' em vez de apenas 'm' ou 'metros')
+  * `unit = string` - exigido apenas para variáveis quantitativas (a unidade de medida). recomendado o uso de padrões de inglês e palavras completas, por exemplo, ('meters' em vez de apenas 'm' ou 'metros')
   * `range_min = number` - opcional para variáveis quantitativas. especifique o valor mínimo permitido para uma [medição](/docs/concepts/trait-objects/#measurement).
   * `range_max = number` - opcional para quantitativo. valor máximo permitido para a variável.
   * `categories = json` - **obrigatório para variáveis categóricas e ordinais**; veja abaixo sobre traduções

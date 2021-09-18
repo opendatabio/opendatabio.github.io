@@ -85,8 +85,8 @@ section = ["HTML", "print"]
 # "RSS"
 
 [params]
-copyright = "OpenDataBio"
-privacy_policy = "https://policies.google.com/privacy"
+copyright = "OpenDataBio Development Team"
+privacy_policy = ""
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]

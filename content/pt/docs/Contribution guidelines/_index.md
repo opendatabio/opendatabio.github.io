@@ -51,13 +51,13 @@ As seguintes diretrizes são recomendadas se você deseja colaborar:
 [Tutoriais](/docs/tutorials) para lidar com tarefas específicas são bem vindos!
 
 Para criar um tutorial:
-1. `Fork` o [repositório de documentação](https://github.com/opendatabio/opendatabio.github.io)
+1. `Fork` o [repositório de documentação](https://github.com/opendatabio/opendatabio.github.io). Ao clonar este repositório ou do seu fork inclua a opção de submódulo para obter também o repositório de tema [Docsy](https://github.com/google/docsy) incluído. Você precisará de [Hugo](https://gohugo.io/) para executar este site em seu localhost.
 1. Crie um `branch` para confirmar suas modificações ou adições
 1. Adicione seu tutorial:
   - Crie uma pasta dentro de `contents/{lang}/docs/Tutorials` usando kebab-case para o nome da pasta. Ex. `primeiro-tutorial`
   - Você pode criar um tutorial em um único idioma ou em vários idiomas. Basta colocá-lo na pasta correta
   - Dentro da pasta criada, crie um arquivo chamado `_index.md` e crie o conteúdo de markdown com seu tutorial.
-  - Você pode começar copiando o conteúdo de um exemplo de tutorial no [repositório Docsy Example](https://example.docsy.dev/docs/tutorials/).
+  - Você pode começar copiando o conteúdo de um tutorial já incluído ou veja a documentação do [Docsy](https://github.com/google/docsy) 
 1. Quando estiver satisfeito com os resultados, faça uma solicitação de pull para pedir ao mantenedor do projeto para revisar sua contribuição e mesclá-la com o repositório. Consulte a [Ajuda do GitHub](https://help.github.com/articles/about-pull-requests/) para obter mais informações sobre o uso de solicitações pull.
 
 ## Colabore com traduções

@@ -53,13 +53,13 @@ We welcome [Tutorials](/docs/tutorials) for dealing with specific tasks.
 
 To create a tutorial:
 
-1. `Fork` the [documentation repository](https://github.com/opendatabio/opendatabio.github.io)
+1. `Fork` the [documentation repository](https://github.com/opendatabio/opendatabio.github.io). When cloning this repository or a fork, include the submodule option to also get the included [Docsy](https://github.com/google/docsy) theme repository. You will need [Hugo](https://gohugo.io/) to run this site in your localhost.
 1. Create a `branch` to commit your modifications or additions
 1. Add your tutorial:
   - Create a folder within the `contents/{lang}/docs/Tutorials` using kebab-case for the folder name. Ex. `first-tutorial`
   - You may create a tutorial in single language, or on multiple languages. Just place it in the correct folder   
   - Within the created folder, create a file named `_index.md` and create the markdown content with your tutorial.
-  - You may start copying the content of a tutorial example in the [Docsy Example repository](https://example.docsy.dev/docs/tutorials/).
+  - You may start copying the content of an existing tutorial.
 1. When happy with results, make a pull request to ask the project maintainer to review your contribution and merge it to the repository. Consult [GitHub Help](https://help.github.com/articles/about-pull-requests/) for more information on using pull requests.
 
 

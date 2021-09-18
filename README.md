@@ -6,7 +6,25 @@ This repository contains the full documentation of OpenDataBio and uses the [Doc
 
 # How to contribute
 
-[Contribution guidelines](https://opendatabio.github.io/docs/contribution-guidelines)
+See the [OpenDataBio Contribution guidelines](https://opendatabio.github.io/docs/contribution-guidelines).
+
+When cloning this repository or a fork, include the submodule option to also get the included Docsy them repository:
+
+```
+git clone --recurse-submodules --depth 1 https://github.com/opendatabio/opendatabio.github.io.git
+```
+
+To run in your localhost:
+
+1. Install Hugo. You need a [recent **extended** version](https://github.com/gohugoio/hugo/releases) of [Hugo](https://gohugo.io/) to do local builds and previews of sites that use Docsy. Make sure to get the `extended` Hugo version.
+1. Then just run hugo server from within the site folder:
+
+```
+cd opendatabio.github.io
+hugo serve
+```
+1. The doc site will be available locally at http://localhost:1313
+
 
 # License
 

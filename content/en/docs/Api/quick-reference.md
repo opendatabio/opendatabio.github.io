@@ -70,12 +70,12 @@ Some parameters accept an asterisk as wildcard, so `api/v0/taxons?name=Euterpe` 
 | [biocollections](/docs/api/post-data/#post-biocollections) | Import BioCollections | `name`, `acronym` |
 | [individuals](/docs/api/post-data/#post-individuals) | Import individuals | `collector`**, `tag`**, `dataset`**, `date`**, (`location` or `latitude` + `longitude`)**, `altitude`, `location_notes`, `location_date_time`, `x`, `y`, `distance `, `angle `, `notes `, `taxon `, `identifier `, `identification_date `, `modifier`, `identification_notes `, `identification_based_on_biocollection`, `identification_based_on_biocollection_id `, `identification_individual` |
 | [individual-locations](/docs/api/post-data/#post-individual-locations) | Import IndividualLocations | `individual`**, (`location` or `latitude` + `longitude`)**, `altitude`, `location_notes`, `location_date_time`, `x`, `y`, `distance`, `angle`|
-| [locations](#endpoint_locations) | Import locations | `name`**, `adm_level`**, (`geom` or `lat`+`long`)** , `parent`, `altitude`, `datum`, `x`, `y` , `startx`, `starty`, `notes`, `ismarine` |
-| [measurements](#endpoint_measurements) | Import Measurements to Datasets |`dataset`**, `date`**, `object_type`**, `object_type`**, `person`**, `trait_id`**, `value`**, `link_id`, `bibreference`, `notes`, `duplicated`|
-| [persons](#endpoint_persons) | Imports a list of people |`full_name`**, `abbreviation`, `email`, `institution`, `biocollection`|
-| [traits](#endpoint_traits) | Import traits | `export_name`**, `type`**, `objects`**, `name`**, `description`**, `units`, `range_min`, `range_max`, `categories`, `wavenumber_min` and `wavenumber_max`, `value_length`, `link_type`, `bibreference`  |
-| [taxons](#endpoint_taxons)  | Imports taxonomic names |`name`**, `level`, `parent`, `bibreference`, `author`, `author_id` or `person`, `valid`, `mobot`, `ipni`, `mycobank`, `zoobank`, `gbif`|
-| [vouchers](#endpoint_vouchers)  | Imports voucher specimens |`individual`**, `biocollection`**, `biocollection_type`, `biocollection_number`, `number`, `collector`, `date`, `dataset`, `notes` |
+| [locations](/docs/api/post-data/#post-locations) | Import locations | `name`**, `adm_level`**, (`geom` or `lat`+`long`)** , `parent`, `altitude`, `datum`, `x`, `y` , `startx`, `starty`, `notes`, `ismarine` |
+| [measurements](/docs/api/post-data/#post-measurements) | Import Measurements to Datasets |`dataset`**, `date`**, `object_type`**, `object_type`**, `person`**, `trait_id`**, `value`**, `link_id`, `bibreference`, `notes`, `duplicated`|
+| [persons](/docs/api/post-data/#post-persons) | Imports a list of people |`full_name`**, `abbreviation`, `email`, `institution`, `biocollection`|
+| [traits](/docs/api/post-data/#post-traits) | Import traits | `export_name`**, `type`**, `objects`**, `name`**, `description`**, `units`, `range_min`, `range_max`, `categories`, `wavenumber_min` and `wavenumber_max`, `value_length`, `link_type`, `bibreference`  |
+| [taxons](/docs/api/post-data/#post-taxons)  | Imports taxonomic names |`name`**, `level`, `parent`, `bibreference`, `author`, `author_id` or `person`, `valid`, `mobot`, `ipni`, `mycobank`, `zoobank`, `gbif`|
+| [vouchers](/docs/api/post-data/#post-vouchers)  | Imports voucher specimens |`individual`**, `biocollection`**, `biocollection_type`, `biocollection_number`, `number`, `collector`, `date`, `dataset`, `notes` |
 
 
 ### Nomenclature types

@@ -90,7 +90,10 @@ The `locations` endpoints interact with the [locations](/docs/concepts/core-obje
 
 {{< alert color="warning" title="Attention">}}
 ODB Locations are stored with a parent-child relationship, assuring validations and facilitating queries. Parents will be guessed using the location geometry. If parent is not informed, the imported location must be completely contained by a registered parent (using sql [ST_WITHIN](https://postgis.net/docs/ST_Within.html) function to  detect parent).  However, if a parent is informed, the importation may also test if the geometry fits a buffered version of the parent geometry, thus ignoring minor geometries overlap and shared borders. Countries can be imported without parent relations. Any other location must be registered within at least a 'country' as parent. If the record is marine, and falls outside of a registered country polygon, a 'ismarine' argument must be indicated to accept the non-spatial parent relationship.
+
+Subplots - a plot location within a plot location - is the only situation in which a geometry is not needed. If not informed, the geometry will be calculated based on the parent plot geometry and the subplot startx and starty coordinates.
 {{< /alert >}}
+
 
 Make sure your geometry projection is **EPSG:4326** **WGS84**. Use this standard!
 
@@ -107,6 +110,7 @@ Available POST fields:
   * `x` and `y` for the plot dimensions in meters(defines the Cartesian coordinates)
   * `startx` and `starty` for start position of a subplot in relation to its parent plot location;
 * `notes` - any note you wish to add to your location;
+* `azimuth` - apply only for Plots and Transects **when registered** with a POINT geometry - azimuth will be used to build the geometry. For plots the point coordinate refer to the 0,0 vertice of the plot polygon that will be build clockwise starting from the informed point, the azimuth and the y dimension. For transects, the informed point coordinates are the start point and a linestring will be build using this azimuth and x dimension.
 * `ismarine` - to permit the importation of location records that not fall within any register parent location you may add ismarine=1. Note, however, that this allows you to import misplaced locations. Only use if your location is really a marine location that fall outside any Country border;
 
 **alternatively**: you may just submit a single column named `geojson` containing a Feature record, with its geometry and having as 'properties' at least tags `name` and `adm_level` (or `admin_level`). See [geojson.org](https://geojson.org/). This is usefull, for example, to import country political boundaries (https://osm-boundaries.com/).
@@ -180,7 +184,7 @@ Fields allowed for the traits/ post API:
 * `name=json` - see translations below; **required**
 * `description=json` - see translations below; **required**
 * **Trait specific fields**:
-  * `units=string` - required for quantitative traits only (the unit o measurement). recommened to use English standards and full words, e.g. ('meters' instead of just 'm')
+  * `unit=string` - required for quantitative traits only (the unit o measurement). recommened to use English standards and full words, e.g. ('meters' instead of just 'm')
   * `range_min=number` - optional for quantitative traits. specify the minimum value allowed for a [Measurement](/docs/concepts/trait-objects/#measurement).
   * `range_max=number` - optional for quantitative. maximum allowed value for the trait.
   * `categories=json` - **required for categorical and ordinal traits**; see translations below
