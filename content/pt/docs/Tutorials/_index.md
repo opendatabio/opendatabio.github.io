@@ -1,9 +1,8 @@
-
 ---
 title: "Tutoriais"
 linkTitle: "Tutoriais"
 weight: 8
-date: 2017-01-04
+date: 2021-09-17
 description: >
   Tutoriais de uso OpenDataBio do OpenDataBio-R
 ---
