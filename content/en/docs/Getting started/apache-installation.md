@@ -217,6 +217,10 @@ the database entirely and rebuild it. Of course, do not run this on a production
 ```bash
 php artisan migrate:fresh
 ```
+* You may also replace the Locations and Taxons  tables with [seed data](https://github.com/opendatabio/data) after a fresh migration using:
+```bash
+php seedodb
+```
 
 ## Post-install configs
 * If your import/export jobs are not being processed, make sure Supervisor is running `systemctl start supervisord && systemctl enable supervisord`, and check the log files at `storage/logs/supervisor.log`.

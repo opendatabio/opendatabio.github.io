@@ -211,6 +211,11 @@ o banco de dados inteiramente e reconstruí-lo. Claro, não execute isso em uma 
 ```bash
 php artisan migrate: fresh
 ```
+* Você pode substituir as tabelas Locations e Taxons usando o [seed data](https://github.com/opendatabio/data) depois de reconstruir a base:
+
+```bash
+php seedodb
+```
 
 ## Configurações pós-instalação
 

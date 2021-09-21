@@ -59,6 +59,13 @@ make composer-install
 ```bash
 make migrate
 ```
+1. You may also replace the Locations and Taxons tables with [seed data](https://github.com/opendatabio/data):
+
+```bash
+make ssh #enter the laravel container 
+php seedodb
+```
+
 
 1. If worked, then Opendatabio will be available in your browser [http::/localhost:8080](http::/localhost:8080).
 1. Login with superuser `admin@example.org` and password `password1`

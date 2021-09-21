@@ -10,7 +10,7 @@ description: >
 
 {{< alert color="warning" >}}Os arquivos Docker forneceidos são para teste, desenvolvimento e instalações locais{{< /alert >}}
 
-### Arquivos Docker incluídos
+## Arquivos Docker incluídos
 
 ```bash
 laraverl-app/
@@ -23,7 +23,7 @@ laraverl-app/
 
 Eles foram adaptados [deste link](https://github.com/dimadeush/docker-nginx-php-laravel), onde você também encontra uma configuração de produção.
 
-### Instalação
+## Instalação
 
 {{< github_button button="view" user="opendatabio" repo="opendatabio" large="true" button_text="Baixar ou clonar o OpenDataBio" >}}
 
@@ -65,13 +65,18 @@ make composer-install
 ```bash
 make migrate
 ```
+1. Você pode alimentar as tabelas Locations e Taxons usando o [seed data](https://github.com/opendatabio/data):
+```bash
+make ssh #entrar no container laravel
+php seedodb
+```
 
 1. Se funcionou, então Opendatabio estará disponível em seu navegador [http::/localhost:8080](http::/localhost:8080).
 1. O banco de dados estará disponível através do phpmyadmin em [http://localhost:8082/](http://localhost:8082/)
 1. Faça login com o super-usuário `admin@example.org` e a senha` password1`
 1. Configurações adicionais nesses arquivos são necessárias para um ambiente de produção e implantação;
 
-### Persistência de dados
+## Persistência de dados
 
 As containers criados pelo Docker podem ser excluídos e regerados sem perder os dados
 As tabelas mysql são armazenadas em um _volume_, que se apagado irá excluir a base de dados completamente.
@@ -80,7 +85,7 @@ As tabelas mysql são armazenadas em um _volume_, que se apagado irá excluir a 
 docker volume list
 ```
 
-### Usando
+## Usando
 
 Leia o conteúdo do arquivo _Makefile_
 
