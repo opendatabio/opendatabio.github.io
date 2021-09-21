@@ -17,9 +17,6 @@ If you just want to test OpenDataBio in your computer, follow the Docker Install
 ----
 ## Prep for installation
 
-<span class="btn  btn-danger mr-3 mb-4 text-dark">
-<i class="fas fa-exclamation-triangle"></i> Not yet ready for production
-</span>
 
 <br>
 {{< github_button button="view" user="opendatabio" repo="opendatabio" large="true" >}}

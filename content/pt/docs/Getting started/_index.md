@@ -17,12 +17,8 @@ Se você deseja testar o OpenDataBio, ajudar no desenvolvimento ou ou ter uma in
 ----
 ## Prepare para instalação
 
-<br>
-<span class="btn  btn-danger mr-3 mb-4 text-dark">
-<i class="fas fa-exclamation-triangle"></i> Não está pronto para produção
-</span>
-<br>
 
+<br>
 {{< github_button button="view" user="opendatabio" repo="opendatabio" large="true" >}}
 <br>
 <br>
