@@ -17,11 +17,11 @@
   },
   "homepage": "https://github.com/google/docsy-example#readme",
   "dependencies": {
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^10.3.5",
     "postcss-cli": "^7.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.3.5",
     "postcss-cli": "^7.1.2"
   }
 }
